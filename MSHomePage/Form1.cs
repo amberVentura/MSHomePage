@@ -15,7 +15,6 @@ namespace MSHomePage
     public partial class Form1 : Form
     {
        Dictionary<string, List <string>> availableSlots = new Dictionary<string, List <string>> ();
-        Dictionary<string, List<string>> availableProc = new Dictionary<string, List<string>> ();
         BindingList<Record> appointmentRecords = new BindingList<Record> ();
         public Form1()
         {
