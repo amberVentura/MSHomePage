@@ -1,0 +1,10 @@
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.AssemblyReference.cache
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\bin\Debug\MSHomePage.exe.config
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\bin\Debug\MSHomePage.exe
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\bin\Debug\MSHomePage.pdb
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.Form1.resources
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.Properties.Resources.resources
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.GenerateResource.cache
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.exe
+C:\Users\Hp\Downloads\MSHomePage-master\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.pdb
