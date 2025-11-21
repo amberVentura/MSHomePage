@@ -59,6 +59,8 @@ namespace MSHomePage
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cbTime.Text = "--Select Time--";
+           
             dataGridView1.DataSource = appointmentRecords;
            List<string> slots = new List<string> 
             {
@@ -86,6 +88,7 @@ namespace MSHomePage
             availableSlots["2025 - 11 - 27"] = new List<string>(slots);             availableSlots["2025 - 11 - 28"] = new List<string>(slots);
             availableSlots["2025 - 11 - 29"] = new List<string>(slots);             availableSlots["2025 - 11 - 30"] = new List<string>(slots);
 
+            
             List<string> procedure = new List<string>
             {
                "Dental Cleaning",
@@ -94,8 +97,9 @@ namespace MSHomePage
                "Tooth filling",
                "Dental flouride"
             };
+           
             cbProcedures.DataSource = procedure;
-       
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -115,89 +119,94 @@ namespace MSHomePage
             {
                 MessageBox.Show("No available time slots for this date, please pick another date. Thank You");
             }
-          
+        
         }
 
         private void cbTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void bReserveAppoint_Click(object sender, EventArgs e)
         {
-
-            string date = dateTimePicker1.Value.ToString("yyyy - MM - dd");
-            string time = cbTime.SelectedItem.ToString();
-            string lastName = tbLastNaneAppoint.Text;
-            string firstName = tbFirstNameAppoint.Text;
-            string contactNum = tbContactNoAppoint.Text;
-            string email = tbEmailAppoint.Text;
-            string DocName = tbDoctorNameAppoint.Text;
-            string Procedure = cbProcedures.SelectedItem.ToString();
-            string gender = bCircleMaleGenderAppoint.Checked ? "Male" :
-                            bCircleFemaleGenderAppoint.Checked ? "Female" :
-                            "None";
-            if (lastName == null)
+            try
             {
-                MessageBox.Show("Please enter patient last name. ");
-            }
-            if (firstName == null)
-            {
-                MessageBox.Show("Please enter patient first name. ");
-            }
-            if (contactNum == null)
-            {
-                MessageBox.Show("Please enter patient contact number. ");
-            }
-            if (email == null)
-            {
-                MessageBox.Show("Please enter patient Email. ");
-            }
-            if (DocName == null)
-            {
-                MessageBox.Show("Please enter the name of the patients doctor. ");
-            }
-            if (Procedure == null)
-            {
-                MessageBox.Show("Please select the procedure for the patient. ");
-            }
-            if (time == null)
-            {
-                MessageBox.Show("Select a Time for your appointment. ");
-                return;
-            }
-            availableSlots[date].Remove(time);
-
-            cbTime.Items.Remove(time);
-
-
-            if (!appointmentRecords.Any(r => r.LastName == lastName))
-            {
-
-                appointmentRecords.Add(new Record
+                if (cbTime.SelectedItem == null)
                 {
-                    LastName = lastName,
-                    FirstName = firstName,
-                    ContactNumber = contactNum,
-                    Email = email,
-                    Gender = gender,
-                    DoctorName = DocName,
-                    Procedures = Procedure,
-                    Date = date,
-                    Time = time,
-                    PaymentStatus = TotalPrice.Tag?.ToString() ?? "N/A"
-                    // here din para mag ka function ung sa data grid chinecheck kung fp orr dp ba nigga
-                });
+                    MessageBox.Show("Please select a timne slot for your appointment");
+                    return;
+                }
+                string date = dateTimePicker1.Value.ToString("yyyy - MM - dd");
+                string time = cbTime.SelectedItem.ToString();
+                string lastName = tbLastNaneAppoint.Text;
+                string firstName = tbFirstNameAppoint.Text;
+                string contactNum = tbContactNoAppoint.Text.Trim();
+                string email = tbEmailAppoint.Text;
+                string DocName = tbDoctorNameAppoint.Text;
+                string Procedure = cbProcedures.SelectedItem.ToString();
+                string gender = bCircleMaleGenderAppoint.Checked ? "Male" :
+                                bCircleFemaleGenderAppoint.Checked ? "Female" :
+                                "None";
+               
 
-                MessageBox.Show("Appointment has been scheduled. See you!");
+                if (string.IsNullOrEmpty(date)  || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(firstName) 
+                || string.IsNullOrEmpty(contactNum) || string.IsNullOrEmpty(email)
+                || string.IsNullOrEmpty(DocName) || string.IsNullOrEmpty(Procedure) || string.IsNullOrEmpty(gender))
+                {
+                    MessageBox.Show("Please fill up all the required info, thank you!!");
+                   
+                }
+                if (!contactNum.StartsWith("09") || contactNum.Length != 11 || !contactNum.All(char.IsDigit))
+                {
+                    MessageBox.Show("Enter a valid 11 digit contact number. Contact number must start with 09.");
+                   
+                }
+                availableSlots[date].Remove(time);
+
+                cbTime.Items.Remove(time);
+
+
+                if (!appointmentRecords.Any(r => r.LastName == lastName))
+                {
+
+                    appointmentRecords.Add(new Record
+                    {
+                        LastName = lastName,
+                        FirstName = firstName,
+                        ContactNumber = contactNum,
+                        Email = email,
+                        Gender = gender,
+                        DoctorName = DocName,
+                        Procedures = Procedure,
+                        Date = date,
+                        Time = time,
+                        PaymentStatus = TotalPrice.Tag?.ToString() ?? "N/A"
+                        // here din para mag ka function ung sa data grid chinecheck kung fp orr dp ba nigga
+                    });
+
+                    MessageBox.Show("Appointment has been scheduled. See you!");
+                }
+
+                else
+                {
+                    MessageBox.Show("The client has already booked an appointment", "Error", MessageBoxButtons.OK);
+                }
             }
-
-            else
+            catch (NullReferenceException )
             {
-                MessageBox.Show("The client has already booked an appointment", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("You have not filled up all the required info. Please fill up all the required information, thank youu!!");
+                
             }
 
-            
+            catch (FormatException )
+            {
+                MessageBox.Show("Invalid format, please fill up the form again!" );
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("Error");
+            }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -31,3 +31,15 @@ C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSH
 C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.CoreCompileInputs.cache
 C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.exe
 C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.pdb
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\bin\Debug\MSHomePage.exe.config
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\bin\Debug\MSHomePage.exe
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.AssemblyReference.cache
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.exe.config
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.Form1.resources
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.Form2.resources
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.Properties.Resources.resources
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.GenerateResource.cache
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.CoreCompileInputs.cache
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.exe
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.pdb
+D:\Git\MSHomePage\MSHomePage-master\MSHomePage\bin\Debug\MSHomePage.pdb
