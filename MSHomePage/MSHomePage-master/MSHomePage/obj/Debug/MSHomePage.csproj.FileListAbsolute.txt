@@ -20,3 +20,14 @@ C:\Users\isore\Source\Repos\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MS
 C:\Users\isore\Source\Repos\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.CoreCompileInputs.cache
 C:\Users\isore\Source\Repos\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.exe
 C:\Users\isore\Source\Repos\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.pdb
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\bin\Debug\MSHomePage.exe.config
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\bin\Debug\MSHomePage.exe
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\bin\Debug\MSHomePage.pdb
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csprojAssemblyReference.cache
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.Form1.resources
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.Form2.resources
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.Properties.Resources.resources
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.GenerateResource.cache
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.csproj.CoreCompileInputs.cache
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.exe
+C:\Users\Student\Downloads\MSHomePage\MSHomePage-master\MSHomePage\obj\Debug\MSHomePage.pdb

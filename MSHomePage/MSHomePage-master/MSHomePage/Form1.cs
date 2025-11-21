@@ -170,22 +170,34 @@ namespace MSHomePage
 
             cbTime.Items.Remove(time);
 
-            appointmentRecords.Add(new Record
+
+            if (!appointmentRecords.Any(r => r.LastName == lastName))
             {
-                LastName = lastName,
-                FirstName = firstName,
-                ContactNumber = contactNum,
-                Email = email,
-                Gender = gender,
-                DoctorName = DocName,
-                Procedures = Procedure,
-                Date = date,
-                Time = time,
-                PaymentStatus = TotalPrice.Tag?.ToString() ?? "N/A"
-                // here din para mag ka function ung sa data grid chinecheck kung fp orr dp ba nigga
-            });
+
+                appointmentRecords.Add(new Record
+                {
+                    LastName = lastName,
+                    FirstName = firstName,
+                    ContactNumber = contactNum,
+                    Email = email,
+                    Gender = gender,
+                    DoctorName = DocName,
+                    Procedures = Procedure,
+                    Date = date,
+                    Time = time,
+                    PaymentStatus = TotalPrice.Tag?.ToString() ?? "N/A"
+                    // here din para mag ka function ung sa data grid chinecheck kung fp orr dp ba nigga
+                });
+
+                MessageBox.Show("Appointment has been scheduled. See you!");
+            }
+
+            else
+            {
+                MessageBox.Show("The client has already booked an appointment", "Error", MessageBoxButtons.OK);
+            }
+
             
-            MessageBox.Show("Appointment has been scheduled. See you!");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -447,6 +459,11 @@ namespace MSHomePage
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
         {
 
         }
