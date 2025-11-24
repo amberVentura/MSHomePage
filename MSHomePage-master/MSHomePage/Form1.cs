@@ -34,18 +34,13 @@ namespace MSHomePage
             public string PaymentStatus { get; set; }
             // nag dagdag lng get set para sa update status :)
         }
-        private void UpdateSelectedPatientPaymentStatus()
+        private void UpdateSelectedPatientPaymentStatus(string firstName, string lastName)
         {
-            
-            string firstName = tbFirstNameAppoint?.Text.Trim();
-            string lastName = tbLastNaneAppoint?.Text.Trim();
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName))
                 return;
 
-           
             string paymentStatus = TotalPrice?.Tag?.ToString() ?? "N/A";
 
-           
             var record = appointmentRecords.FirstOrDefault(r =>
                 r.FirstName.Equals(firstName, StringComparison.OrdinalIgnoreCase) &&
                 r.LastName.Equals(lastName, StringComparison.OrdinalIgnoreCase));
@@ -53,12 +48,14 @@ namespace MSHomePage
             if (record != null)
             {
                 record.PaymentStatus = paymentStatus;
-                dataGridView1.Invoke(new Action(() => dataGridView1.Refresh())); 
+                dataGridView1.Invoke(new Action(() => dataGridView1.Refresh()));
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cbTime.Text = "--Select Time--";
+           
             dataGridView1.DataSource = appointmentRecords;
            List<string> slots = new List<string> 
             {
@@ -86,6 +83,7 @@ namespace MSHomePage
             availableSlots["2025 - 11 - 27"] = new List<string>(slots);             availableSlots["2025 - 11 - 28"] = new List<string>(slots);
             availableSlots["2025 - 11 - 29"] = new List<string>(slots);             availableSlots["2025 - 11 - 30"] = new List<string>(slots);
 
+            
             List<string> procedure = new List<string>
             {
                "Dental Cleaning",
@@ -94,8 +92,9 @@ namespace MSHomePage
                "Tooth filling",
                "Dental flouride"
             };
+           
             cbProcedures.DataSource = procedure;
-       
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -115,77 +114,94 @@ namespace MSHomePage
             {
                 MessageBox.Show("No available time slots for this date, please pick another date. Thank You");
             }
-          
+        
         }
 
         private void cbTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void bReserveAppoint_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (cbTime.SelectedItem == null)
+                {
+                    MessageBox.Show("Please select a timne slot for your appointment");
+                    return;
+                }
+                string date = dateTimePicker1.Value.ToString("yyyy - MM - dd");
+                string time = cbTime.SelectedItem.ToString();
+                string lastName = tbLastNaneAppoint.Text;
+                string firstName = tbFirstNameAppoint.Text;
+                string contactNum = tbContactNoAppoint.Text.Trim();
+                string email = tbEmailAppoint.Text;
+                string DocName = tbDoctorNameAppoint.Text;
+                string Procedure = cbProcedures.SelectedItem.ToString();
+                string gender = bCircleMaleGenderAppoint.Checked ? "Male" :
+                                bCircleFemaleGenderAppoint.Checked ? "Female" :
+                                "None";
+               
 
-            string date = dateTimePicker1.Value.ToString("yyyy - MM - dd");
-            string time = cbTime.SelectedItem.ToString();
-            string lastName = tbLastNaneAppoint.Text;
-            string firstName = tbFirstNameAppoint.Text;
-            string contactNum = tbContactNoAppoint.Text;
-            string email = tbEmailAppoint.Text;
-            string DocName = tbDoctorNameAppoint.Text;
-            string Procedure = cbProcedures.SelectedItem.ToString();
-            string gender = bCircleMaleGenderAppoint.Checked ? "Male" :
-                            bCircleFemaleGenderAppoint.Checked ? "Female" :
-                            "None";
-            if (lastName == null)
-            {
-                MessageBox.Show("Please enter patient last name. ");
-            }
-            if (firstName == null)
-            {
-                MessageBox.Show("Please enter patient first name. ");
-            }
-            if (contactNum == null)
-            {
-                MessageBox.Show("Please enter patient contact number. ");
-            }
-            if (email == null)
-            {
-                MessageBox.Show("Please enter patient Email. ");
-            }
-            if (DocName == null)
-            {
-                MessageBox.Show("Please enter the name of the patients doctor. ");
-            }
-            if (Procedure == null)
-            {
-                MessageBox.Show("Please select the procedure for the patient. ");
-            }
-            if (time == null)
-            {
-                MessageBox.Show("Select a Time for your appointment. ");
-                return;
-            }
-            availableSlots[date].Remove(time);
+                if (string.IsNullOrEmpty(date)  || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(firstName) 
+                || string.IsNullOrEmpty(contactNum) || string.IsNullOrEmpty(email)
+                || string.IsNullOrEmpty(DocName) || string.IsNullOrEmpty(Procedure) || string.IsNullOrEmpty(gender))
+                {
+                    MessageBox.Show("Please fill up all the required info, thank you!!");
+                   
+                }
+                if (!contactNum.StartsWith("09") || contactNum.Length != 11 || !contactNum.All(char.IsDigit))
+                {
+                    MessageBox.Show("Enter a valid 11 digit contact number. Contact number must start with 09.");
+                   
+                }
+                availableSlots[date].Remove(time);
 
-            cbTime.Items.Remove(time);
+                cbTime.Items.Remove(time);
 
-            appointmentRecords.Add(new Record
+
+                if (!appointmentRecords.Any(r => r.LastName == lastName))
+                {
+
+                    appointmentRecords.Add(new Record
+                    {
+                        LastName = lastName,
+                        FirstName = firstName,
+                        ContactNumber = contactNum,
+                        Email = email,
+                        Gender = gender,
+                        DoctorName = DocName,
+                        Procedures = Procedure,
+                        Date = date,
+                        Time = time,
+                        PaymentStatus = TotalPrice.Tag?.ToString() ?? "N/A"
+                        // here din para mag ka function ung sa data grid chinecheck kung fp orr dp ba nigga
+                    });
+
+                    MessageBox.Show("Appointment has been scheduled. See you!");
+                }
+
+                else
+                {
+                    MessageBox.Show("The client has already booked an appointment", "Error", MessageBoxButtons.OK);
+                }
+            }
+            catch (NullReferenceException )
             {
-                LastName = lastName,
-                FirstName = firstName,
-                ContactNumber = contactNum,
-                Email = email,
-                Gender = gender,
-                DoctorName = DocName,
-                Procedures = Procedure,
-                Date = date,
-                Time = time,
-                PaymentStatus = TotalPrice.Tag?.ToString() ?? "N/A"
-                // here din para mag ka function ung sa data grid chinecheck kung fp orr dp ba nigga
-            });
-            
-            MessageBox.Show("Appointment has been scheduled. See you!");
+                MessageBox.Show("You have not filled up all the required info. Please fill up all the required information, thank youu!!");
+                
+            }
+
+            catch (FormatException )
+            {
+                MessageBox.Show("Invalid format, please fill up the form again!" );
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("Error");
+            }
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -272,8 +288,8 @@ namespace MSHomePage
         private void SearchPatient_Click(object sender, EventArgs e)
         {
             
-            string firstNameSearch = GetControlText("LastName");     
-            string lastNameSearch = GetControlText("TextLabel1");   
+            string firstNameSearch = GetControlText("textLabel1");     
+            string lastNameSearch = GetControlText("LastName");   
 
             
             Record found = appointmentRecords.FirstOrDefault(r =>
@@ -372,54 +388,82 @@ namespace MSHomePage
                 MessageBox.Show("Enter a valid Original Price.");
                 return;
             }
+
             decimal discount = 0;
             string discountText = GetControlValue("Discount").Trim().Replace("%", "");
             decimal.TryParse(discountText, out discount);
-
 
             decimal discountedPrice = originalPrice - (originalPrice * (discount / 100));
 
             bool fullPay = ((RadioButton)this.Controls.Find("FullPayment", true)[0]).Checked;
             bool downPay = ((RadioButton)this.Controls.Find("Downpayment", true)[0]).Checked;
 
-
-
             string paymentStatus = "";
 
             if (fullPay)
-            {
                 paymentStatus = "FP";
-            }
             else if (downPay)
             {
                 paymentStatus = "DP";
                 discountedPrice /= 2;
             }
 
-           
             SetControlValue("TotalPrice", discountedPrice.ToString("F2"));
-
             TotalPrice.Tag = paymentStatus;
-            UpdateSelectedPatientPaymentStatus();
 
+           
+            string billingFirstName = GetControlValue("textBox1");
+            string billingLastName = GetControlValue("LastName");
+            UpdateSelectedPatientPaymentStatus(billingFirstName, billingLastName);
         }
 
 
 
         private void PrintPrice_Click(object sender, EventArgs e)
         {
-            string receipt =
-                "----- BILLING RECEIPT -----\n" +
-                $"Patient: {GetControlValue("textLabel1")} {GetControlValue("LastName")}\n" +
-                $"Doctor: {GetControlValue("DoctorAssigned")}\n" +
-                $"Procedure: {GetControlValue("ProcedureAssigned")}\n" +
-                $"Original Price: {GetControlValue("OrigPrice")}\n" +
-                $"Discount: {GetControlValue("Discount")}%\n" +
-                $"Total Due: {GetControlValue("TotalPrice")}\n" +
-                "----------------------------";
-            // ai lng to nigga para maganda nman tignan ung resibo wtf
-            MessageBox.Show(receipt, "Billing Receipt");
+            try
+            {
+                string firstName = GetControlValue("textBox1");
+                string lastName = GetControlValue("LastName");
+                string doctor = GetControlValue("DoctorAssigned");
+                string procedure = GetControlValue("ProcedureAssigned");
+                string origPrice = GetControlValue("OrigPrice");
+                string discount = GetControlValue("Discount");
+                string total = GetControlValue("TotalPrice");
+                string billingFirstName = GetControlValue("textBox1");
+                string billingLastName = GetControlValue("LastName");
+                UpdateSelectedPatientPaymentStatus(billingFirstName, billingLastName);
+
+                if (string.IsNullOrWhiteSpace(firstName) ||
+                    string.IsNullOrWhiteSpace(lastName) ||
+                    string.IsNullOrWhiteSpace(procedure) ||
+                    string.IsNullOrWhiteSpace(origPrice))
+                {
+                    MessageBox.Show("Missing billing information. Please search patient and calculate first.");
+                    return;
+                }
+
+                string receipt =
+                    "----- BILLING RECEIPT -----\n" +
+                    $"Patient: {firstName} {lastName}\n" +
+                    $"Doctor: {doctor}\n" +
+                    $"Procedure: {procedure}\n" +
+                    $"Original Price: {origPrice}\n" +
+                    $"Discount: {discount}%\n" +
+                    $"Total Due: {total}\n" +
+                    "----------------------------";
+
+                MessageBox.Show(receipt, "Billing Receipt");
+
+                ResetBillingFields();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error while printing: " + ex.Message);
+            }
         }
+
+
 
         Dictionary<string, decimal> procedurePrices = new Dictionary<string, decimal>()
 {
@@ -432,21 +476,61 @@ namespace MSHomePage
 
         private string GetControlValue(string controlName)
         {
-            Control[] found = this.Controls.Find(controlName, true);
-            if (found.Length > 0)
-                return found[0].Text;
-            return "";
-        }
-        // nanigga
-     
-        private void SetControlValue(string controlName, string value)
-        {
-            Control[] found = this.Controls.Find(controlName, true);
-            if (found.Length > 0)
-                found[0].Text = value;
+            Control[] found = tabPage4.Controls.Find(controlName, true);
+            if (found.Length == 0) return "";
+
+            Control ctrl = found[0];
+
+            if (ctrl is TextBox tb) return tb.Text;
+            if (ctrl is Label lbl) return lbl.Text;
+            if (ctrl is RadioButton rb) return rb.Checked ? "Checked" : "";
+            return ctrl.Text;
         }
 
+        private void SetControlValue(string controlName, string value)
+        {
+            Control[] found = tabPage4.Controls.Find(controlName, true);
+            if (found.Length == 0) return;
+
+            Control ctrl = found[0];
+
+            if (ctrl is TextBox tb) tb.Text = value;
+            else if (ctrl is Label lbl) lbl.Text = value;
+            else if (ctrl is RadioButton rb) rb.Checked = value == "Checked";
+            else ctrl.Text = value;
+        }
+
+        private void ResetBillingFields()
+        {
+            
+            string[] textBoxes = { "textBox1", "LastName", "DoctorAssigned", "ProcedureAssigned", "OrigPrice", "Discount", "TotalPrice" };
+            foreach (string name in textBoxes)
+            {
+                SetControlValue(name, "");
+            }
+
+            string[] radioButtons = { "FullPayment", "Downpayment" };
+            foreach (string name in radioButtons)
+            {
+                SetControlValue(name, ""); 
+            }
+
+            
+            TotalPrice.Tag = null;
+        }
+
+
         private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
