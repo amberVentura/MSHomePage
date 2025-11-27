@@ -16,7 +16,10 @@ namespace MSHomePage
     {
        Dictionary<string, List <string>> availableSlots = new Dictionary<string, List <string>> ();
         BindingList<Record> appointmentRecords = new BindingList<Record> ();
-        private BindingList<Record> deletedRecords;
+        BindingList<Record> deletedRecords = new BindingList<Record>();
+        
+        private Archives archives;
+        private Deletion deletion;
         public HomePage()
         {
             InitializeComponent();
@@ -95,7 +98,17 @@ namespace MSHomePage
             };
            
             cbProcedures.DataSource = procedure;
-            
+
+            List<string> doctorNames = new List<string>
+            {
+                "Dr. Juan Dela Cruz",
+                "Dr. Dwayne Santos",
+                "Dr. Pedro Reyes",
+                "Dr. Ana Lopez",
+                "Dr. GianIscaliv Isorena"
+            };
+            cbDoctorNameAppoint.DataSource = doctorNames;   
+
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -138,7 +151,7 @@ namespace MSHomePage
                 string firstName = tbFirstNameAppoint.Text;
                 string contactNum = tbContactNoAppoint.Text.Trim();
                 string email = tbEmailAppoint.Text;
-                string DocName = tbDoctorNameAppoint.Text;
+                string DocName = cbDoctorNameAppoint.Text;
                 string Procedure = cbProcedures.SelectedItem.ToString();
                 string gender = bCircleMaleGenderAppoint.Checked ? "Male" :
                                 bCircleFemaleGenderAppoint.Checked ? "Female" :
@@ -155,8 +168,9 @@ namespace MSHomePage
                 if (!contactNum.StartsWith("09") || contactNum.Length != 11 || !contactNum.All(char.IsDigit))
                 {
                     MessageBox.Show("Enter a valid 11 digit contact number. Contact number must start with 09.");
-                   
+                   return;
                 }
+                
                 availableSlots[date].Remove(time);
 
                 cbTime.Items.Remove(time);
@@ -439,15 +453,36 @@ namespace MSHomePage
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var deletionForm = new Deletion(appointmentRecords, deletedRecords);
-            deletionForm.Show();
+            
+            if (deletion == null || deletion.IsDisposed)
+            {
+                deletion = new Deletion(appointmentRecords, deletedRecords);
+                deletion.Show();
+            }
+            else
+            {
+                deletion.Close();
+                deletion = null;
+            }
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            Archives archives = new Archives(deletedRecords);
-            archives.Show();
+            
+            if (archives == null || archives.IsDisposed)
+            {
+                archives = new Archives(deletedRecords);
+                archives.Show();
+            }
+            else
+            {
+                archives.Close();
+                archives = null;
+            }
 
         }
+
+        
     }
 }

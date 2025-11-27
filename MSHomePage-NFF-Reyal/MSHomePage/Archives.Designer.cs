@@ -74,6 +74,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Archives";
+            this.Load += new System.EventHandler(this.Archives_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRemoved)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

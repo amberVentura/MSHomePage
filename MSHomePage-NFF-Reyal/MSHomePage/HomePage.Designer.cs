@@ -44,6 +44,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbDoctorNameAppoint = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.cbTime = new System.Windows.Forms.ComboBox();
             this.cbProcedures = new System.Windows.Forms.ComboBox();
@@ -51,7 +52,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbDoctorNameAppoint = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbLastNaneAppoint = new System.Windows.Forms.TextBox();
             this.tbFirstNameAppoint = new System.Windows.Forms.TextBox();
@@ -85,8 +85,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.LastName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControlMain.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -264,6 +265,7 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.cbDoctorNameAppoint);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.cbTime);
             this.panel2.Controls.Add(this.cbProcedures);
@@ -271,11 +273,18 @@
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.dateTimePicker1);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.tbDoctorNameAppoint);
             this.panel2.Location = new System.Drawing.Point(317, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(703, 626);
             this.panel2.TabIndex = 0;
+            // 
+            // cbDoctorNameAppoint
+            // 
+            this.cbDoctorNameAppoint.FormattingEnabled = true;
+            this.cbDoctorNameAppoint.Location = new System.Drawing.Point(35, 144);
+            this.cbDoctorNameAppoint.Name = "cbDoctorNameAppoint";
+            this.cbDoctorNameAppoint.Size = new System.Drawing.Size(286, 28);
+            this.cbDoctorNameAppoint.TabIndex = 13;
             // 
             // label16
             // 
@@ -344,13 +353,6 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Doctor Name";
             // 
-            // tbDoctorNameAppoint
-            // 
-            this.tbDoctorNameAppoint.Location = new System.Drawing.Point(34, 143);
-            this.tbDoctorNameAppoint.Name = "tbDoctorNameAppoint";
-            this.tbDoctorNameAppoint.Size = new System.Drawing.Size(290, 26);
-            this.tbDoctorNameAppoint.TabIndex = 6;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -396,7 +398,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 35);
             this.button2.TabIndex = 10;
-            this.button2.Text = "Remove";
+            this.button2.Text = "Deactive";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -690,18 +692,6 @@
             this.label12.TabIndex = 7;
             this.label12.Text = "Billings";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label8.ImageKey = "(none)";
-            this.label8.Location = new System.Drawing.Point(57, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(101, 28);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "DentPro";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -712,14 +702,39 @@
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label8.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.ForestGreen;
+            this.label8.Location = new System.Drawing.Point(68, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 28);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Dent";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label17.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Aqua;
+            this.label17.Location = new System.Drawing.Point(124, 9);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(53, 28);
+            this.label17.TabIndex = 26;
+            this.label17.Text = "Pro";
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1051, 715);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
@@ -762,7 +777,6 @@
         private System.Windows.Forms.TextBox tbFirstNameAppoint;
         private System.Windows.Forms.TextBox tbLastNaneAppoint;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbDoctorNameAppoint;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbEmailAppoint;
         private System.Windows.Forms.RadioButton bCircleFemaleGenderAppoint;
@@ -773,7 +787,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button bReserveAppoint;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -807,6 +820,9 @@
         private System.Windows.Forms.Label DoctorAssigned;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbDoctorNameAppoint;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label17;
     }
 }
 

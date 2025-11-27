@@ -13,14 +13,17 @@ namespace MSHomePage
 {
     public partial class Archives : Form
     {
-        public BindingList<Record> DeletedRecords = new BindingList<Record>();
+        private BindingList<Record> DeletedRecords;
         public Archives(BindingList<Record> deletedRecords)
         {
             InitializeComponent();
-
-            dgvRemoved.DataSource = DeletedRecords;
+            DeletedRecords = deletedRecords;
         }
 
-
+        private void Archives_Load(object sender, EventArgs e)
+        {
+            dgvRemoved.Refresh();
+            dgvRemoved.DataSource = DeletedRecords;
+        }
     }
 }
