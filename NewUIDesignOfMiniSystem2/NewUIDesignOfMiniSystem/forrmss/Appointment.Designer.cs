@@ -82,6 +82,7 @@
             this.tbEmailAppoint.Name = "tbEmailAppoint";
             this.tbEmailAppoint.Size = new System.Drawing.Size(263, 22);
             this.tbEmailAppoint.TabIndex = 26;
+            this.tbEmailAppoint.TextChanged += new System.EventHandler(this.tbEmailAppoint_TextChanged);
             // 
             // bCircleFemaleGenderAppoint
             // 
@@ -172,6 +173,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(679, 652);
             this.panel2.TabIndex = 14;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // cbDoctorNameAppoint
             // 
@@ -202,6 +204,7 @@
             this.cbTime.Name = "cbTime";
             this.cbTime.Size = new System.Drawing.Size(143, 24);
             this.cbTime.TabIndex = 11;
+            this.cbTime.SelectedIndexChanged += new System.EventHandler(this.cbTime_SelectedIndexChanged);
             // 
             // cbProcedures
             // 
@@ -276,6 +279,7 @@
             this.tbFirstNameAppoint.Name = "tbFirstNameAppoint";
             this.tbFirstNameAppoint.Size = new System.Drawing.Size(263, 22);
             this.tbFirstNameAppoint.TabIndex = 18;
+            this.tbFirstNameAppoint.TextChanged += new System.EventHandler(this.tbFirstNameAppoint_TextChanged);
             // 
             // Appointment
             // 

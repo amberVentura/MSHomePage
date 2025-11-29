@@ -52,6 +52,8 @@
             this.firstName = new System.Windows.Forms.TextBox();
             this.LastName = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Email = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,11 +86,12 @@
             this.Downpayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Downpayment.Location = new System.Drawing.Point(842, 100);
             this.Downpayment.Name = "Downpayment";
-            this.Downpayment.Size = new System.Drawing.Size(44, 20);
+            this.Downpayment.Size = new System.Drawing.Size(43, 20);
             this.Downpayment.TabIndex = 36;
             this.Downpayment.TabStop = true;
-            this.Downpayment.Text = "DP";
+            this.Downpayment.Text = "RF";
             this.Downpayment.UseVisualStyleBackColor = true;
+            this.Downpayment.CheckedChanged += new System.EventHandler(this.Downpayment_CheckedChanged);
             // 
             // FullPayment
             // 
@@ -101,6 +104,7 @@
             this.FullPayment.TabStop = true;
             this.FullPayment.Text = "FP";
             this.FullPayment.UseVisualStyleBackColor = true;
+            this.FullPayment.CheckedChanged += new System.EventHandler(this.FullPayment_CheckedChanged);
             // 
             // label22
             // 
@@ -258,17 +262,17 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(12, 137);
+            this.label13.Location = new System.Drawing.Point(7, 156);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(115, 25);
+            this.label13.Size = new System.Drawing.Size(65, 25);
             this.label13.TabIndex = 24;
-            this.label13.Text = "Last Name";
+            this.label13.Text = "Email";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(12, 70);
+            this.label14.Location = new System.Drawing.Point(7, 54);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(116, 25);
             this.label14.TabIndex = 25;
@@ -277,18 +281,20 @@
             // firstName
             // 
             this.firstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstName.Location = new System.Drawing.Point(11, 98);
+            this.firstName.Location = new System.Drawing.Point(12, 81);
             this.firstName.Name = "firstName";
             this.firstName.Size = new System.Drawing.Size(290, 22);
             this.firstName.TabIndex = 26;
+            this.firstName.TextChanged += new System.EventHandler(this.firstName_TextChanged);
             // 
             // LastName
             // 
             this.LastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastName.Location = new System.Drawing.Point(11, 165);
+            this.LastName.Location = new System.Drawing.Point(11, 134);
             this.LastName.Name = "LastName";
             this.LastName.Size = new System.Drawing.Size(290, 22);
             this.LastName.TabIndex = 27;
+            this.LastName.TextChanged += new System.EventHandler(this.LastName_TextChanged);
             // 
             // label12
             // 
@@ -300,11 +306,32 @@
             this.label12.TabIndex = 23;
             this.label12.Text = "Billings";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 106);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 25);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "Last Name";
+            // 
+            // Email
+            // 
+            this.Email.FormattingEnabled = true;
+            this.Email.Location = new System.Drawing.Point(12, 185);
+            this.Email.Name = "Email";
+            this.Email.Size = new System.Drawing.Size(290, 21);
+            this.Email.TabIndex = 41;
+            this.Email.SelectedIndexChanged += new System.EventHandler(this.Email_SelectedIndexChanged);
+            // 
             // Billings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1007, 619);
+            this.Controls.Add(this.Email);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ProcedureAssigned);
             this.Controls.Add(this.DoctorAssigned);
             this.Controls.Add(this.Downpayment);
@@ -323,6 +350,7 @@
             this.Controls.Add(this.label12);
             this.Name = "Billings";
             this.Text = "Billings";
+            this.Load += new System.EventHandler(this.Billings_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -356,5 +384,7 @@
         private System.Windows.Forms.TextBox firstName;
         private System.Windows.Forms.TextBox LastName;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox Email;
     }
 }

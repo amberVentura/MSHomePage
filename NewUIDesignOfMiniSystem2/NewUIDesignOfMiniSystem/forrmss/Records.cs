@@ -15,15 +15,17 @@ namespace NewUIDesignOfMiniSystem.forrmss
     {
         
         private BindingList<Record> AppointmentRecords;
+        private Dictionary<string, decimal> procedurePrices;
         private BindingList<Record> DeletedRecords;
 
         private Archives archives;
         private DeactiveSection deletion;
-        public Records(BindingList<Record> appointmentRecords, BindingList<Record> deletedRecords)
+        public Records(BindingList<Record> appointmentRecords, BindingList<Record> deletedRecords, Dictionary<string, decimal> procedurePrices)
         {
             InitializeComponent();
             AppointmentRecords = appointmentRecords;
             DeletedRecords = deletedRecords;
+            this.procedurePrices = procedurePrices;
         }
         private void Records_Load(object sender, EventArgs e)
         {
@@ -47,7 +49,7 @@ namespace NewUIDesignOfMiniSystem.forrmss
         {
             if (deletion == null || deletion.IsDisposed)
             {
-                deletion = new DeactiveSection(AppointmentRecords, DeletedRecords);
+                deletion = new DeactiveSection(AppointmentRecords, DeletedRecords,procedurePrices);
                 deletion.Show();
             }
             else
@@ -69,6 +71,11 @@ namespace NewUIDesignOfMiniSystem.forrmss
                 archives.Close();
                 archives = null;
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -30,3 +30,37 @@ C:\Users\Yeshua Uriel\source\repos\MSHomePage1\NewUIDesignOfMiniSystem\NewUIDesi
 C:\Users\Yeshua Uriel\source\repos\MSHomePage1\NewUIDesignOfMiniSystem\NewUIDesignOfMiniSystem\bin\Debug\NewUIDesignOfMiniSystem.exe.config
 C:\Users\Yeshua Uriel\source\repos\MSHomePage1\NewUIDesignOfMiniSystem\NewUIDesignOfMiniSystem\bin\Debug\NewUIDesignOfMiniSystem.exe
 C:\Users\Yeshua Uriel\source\repos\MSHomePage1\NewUIDesignOfMiniSystem\NewUIDesignOfMiniSystem\bin\Debug\NewUIDesignOfMiniSystem.pdb
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\bin\Debug\NewUIDesignOfMiniSystem.exe.config
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\bin\Debug\NewUIDesignOfMiniSystem.exe
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\bin\Debug\NewUIDesignOfMiniSystem.pdb
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.csproj.AssemblyReference.cache
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.exe.config
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.Archives.resources
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.DeactiveSection.resources
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.forrmss.Appointment.resources
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.forrmss.Billings.resources
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.forrmss.Records.resources
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.Login.resources
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.MainPage.resources
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.Properties.Resources.resources
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.csproj.GenerateResource.cache
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.csproj.CoreCompileInputs.cache
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.exe
+C:\Users\isore\Source\Repos\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.pdb
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\bin\Debug\NewUIDesignOfMiniSystem.exe.config
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\bin\Debug\NewUIDesignOfMiniSystem.exe
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\bin\Debug\NewUIDesignOfMiniSystem.pdb
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.exe.config
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.Archives.resources
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.DeactiveSection.resources
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.forrmss.Appointment.resources
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.forrmss.Billings.resources
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.forrmss.Records.resources
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.Login.resources
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.MainPage.resources
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.Properties.Resources.resources
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.csproj.GenerateResource.cache
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.exe
+C:\Users\Lenovo\Downloads\MSHomePager-20251128T155507Z-1-001\MSHomePager\NewUIDesignOfMiniSystem2\NewUIDesignOfMiniSystem\obj\Debug\NewUIDesignOfMiniSystem.pdb

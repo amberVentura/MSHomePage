@@ -18,16 +18,18 @@ namespace NewUIDesignOfMiniSystem
         BindingList<Record> appointmentRecords = new BindingList<Record>();
         private BindingList<Record> DeletedRecords;
         private Billings billingsForm;
+        private Dictionary<string, decimal> procedurePrices;
         private Records recordsForm;
         private Form currentChildForm;
 
-        public MainPage( Billings billingsForm, BindingList<Record> deletedRecords, Records parentForm)
+        public MainPage( Billings billingsForm, BindingList<Record> deletedRecords, Records parentForm, Dictionary<string, decimal> procedurePrices)
         {
             InitializeComponent();
             
             DeletedRecords = deletedRecords;
             this.billingsForm = billingsForm;
             this.recordsForm = parentForm;
+            this.procedurePrices = procedurePrices;
 
             typeof(Panel).InvokeMember("DoubleBuffered",
         System.Reflection.BindingFlags.SetProperty | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic,
@@ -75,7 +77,7 @@ namespace NewUIDesignOfMiniSystem
 
         private void buttonRecords_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new forrmss.Records(appointmentRecords, DeletedRecords));
+            OpenChildForm(new forrmss.Records(appointmentRecords, DeletedRecords, procedurePrices));
         }
 
         private void buttonBillings_Click(object sender, EventArgs e)
@@ -84,6 +86,11 @@ namespace NewUIDesignOfMiniSystem
         }
 
         private void MainPage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

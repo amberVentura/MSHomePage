@@ -18,19 +18,29 @@ namespace NewUIDesignOfMiniSystem
         static void Main()
         {
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+           
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            BindingList<Appointment.Record> appointmentRecords = new BindingList<Appointment.Record>();
+                Dictionary<string, decimal> procedurePrices = new Dictionary<string, decimal>();
 
-            BindingList<Appointment.Record> deletedRecords = new BindingList<Appointment.Record>();
+                BindingList<Appointment.Record> appointmentRecords = new BindingList<Appointment.Record>();
+                BindingList<Appointment.Record> deletedRecords = new BindingList<Appointment.Record>();
 
-            Records recordsForm = new Records(appointmentRecords, deletedRecords);
-            Billings billingsForm = new Billings(recordsForm, appointmentRecords);
-            
+                Records recordsForm = new Records(appointmentRecords, deletedRecords, procedurePrices);
+                Billings billingsForm = new Billings(recordsForm, appointmentRecords);
 
-            Application.Run(new Login(appointmentRecords,billingsForm,deletedRecords,recordsForm));
+              
+                Application.Run(new Login(
+                    appointmentRecords,
+                    billingsForm,
+                    deletedRecords,
+                    recordsForm,
+                    procedurePrices
+                ));
+            }
+
         }
 
     }
-}
+

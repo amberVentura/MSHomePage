@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewUIDesignOfMiniSystem.forrmss;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +14,17 @@ namespace NewUIDesignOfMiniSystem
 {
     public partial class DeactiveSection : Form
     {
+        private Dictionary<string, decimal> procedurePrices;
         private BindingList<Record> AppointmentRecords;
         private BindingList<Record> DeletedRecords;
-        public DeactiveSection(BindingList<Record> appointmentRecords, BindingList<Record> deletedRecords)
+        private Billings billings;
+        public DeactiveSection(BindingList<Record> appointmentRecords, BindingList<Record> deletedRecords, Dictionary<string, decimal> procedurePrices)
         {
             InitializeComponent();
             AppointmentRecords = appointmentRecords ?? new BindingList<Record>();
             DeletedRecords = deletedRecords ?? new BindingList<Record>();
+            this.procedurePrices = procedurePrices;
+          
         }
 
         private void bRSearch_Click(object sender, EventArgs e)
@@ -70,6 +75,7 @@ namespace NewUIDesignOfMiniSystem
         {
             string RLastName = tbRLastName.Text;
             string RFirstName = tbRFirstName.Text;
+            
 
             Record found = AppointmentRecords.FirstOrDefault(r =>
                 r.FirstName.Equals(RFirstName, StringComparison.OrdinalIgnoreCase) &&

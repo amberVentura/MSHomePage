@@ -20,10 +20,11 @@ namespace NewUIDesignOfMiniSystem
         private BindingList<Record> AppointmentRecords;
         private BindingList<Record> DeletedRecords;
         private Records recordsForm;
+        private Dictionary<string, decimal> procedurePrices;
         private Billings billingsForm;
         Hashtable adminList = new Hashtable();
         
-        public Login(BindingList<Appointment.Record> appointmentRecords, Billings billingsForm, BindingList<Record> deletedRecords, Records recordsForm)
+        public Login(BindingList<Appointment.Record> appointmentRecords, Billings billingsForm, BindingList<Record> deletedRecords, Records recordsForm, Dictionary<string, decimal> procedurePrices)
         {
             InitializeComponent();
             LoadAdmins();
@@ -31,6 +32,7 @@ namespace NewUIDesignOfMiniSystem
             DeletedRecords = deletedRecords;
             this.billingsForm = billingsForm;
             this.recordsForm = recordsForm;
+            this.procedurePrices = procedurePrices;
 
         }
         //Ilagay ang GetHash para siguradong nakikita  siya
@@ -60,6 +62,28 @@ namespace NewUIDesignOfMiniSystem
         {
             tbPassword.UseSystemPasswordChar = true; // hindi makikita yung password
             tbUser.Focus();
+
+            tbUser.KeyDown += tbUser_KeyDown;
+            tbPassword.KeyDown += tbPassword_KeyDown;
+        }
+        private void tbUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                tbPassword.Focus();           
+                tbPassword.SelectAll();       
+                e.SuppressKeyPress = true;    
+                e.Handled = true;
+            }
+        }
+        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                bLogin.PerformClick();        
+                e.SuppressKeyPress = true;    
+                e.Handled = true;
+            }
         }
         private void bLogin_Click(object sender, EventArgs e)
         {
@@ -81,7 +105,7 @@ namespace NewUIDesignOfMiniSystem
                     MessageBox.Show("Welcome, " + user + "!", "Login Success",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    MainPage main = new MainPage(billingsForm,DeletedRecords,recordsForm); // Lalabas bigla yung homepage 
+                    MainPage main = new MainPage(billingsForm,DeletedRecords,recordsForm,procedurePrices); // Lalabas bigla yung homepage 
                     main.Show();
                     this.Hide();
                 }
